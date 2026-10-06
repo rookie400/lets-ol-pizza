@@ -2,18 +2,23 @@
 
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<meta name="viewport"
+   content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 <title>Lets-ol Sari-sari Store</title>
 
 <style>
+
 *{
     box-sizing:border-box;
     -webkit-tap-highlight-color:transparent;
 }
 
-html,body{
+html,
+body{
     margin:0;
     padding:0;
     width:100%;
@@ -26,6 +31,9 @@ html,body{
 body{
     overflow-x:hidden;
 }
+
+
+/* HEADER */
 
 .header{
     position:sticky;
@@ -62,9 +70,9 @@ body{
     background:#ffd400;
     color:#111;
     font-weight:bold;
-    font-size:18px;
+    font-size:17px;
     border-radius:12px;
-    padding:12px 16px;
+    padding:11px 15px;
     cursor:pointer;
     box-shadow:0 2px 5px rgba(0,0,0,.2);
 }
@@ -72,6 +80,23 @@ body{
 .cartBtn:active{
     transform:scale(.95);
 }
+
+.cartCount{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    min-width:22px;
+    height:22px;
+    padding:0 5px;
+    margin-left:4px;
+    border-radius:50%;
+    background:#c9151e;
+    color:white;
+    font-size:12px;
+}
+
+
+/* PRODUCTS */
 
 .container{
     width:100%;
@@ -139,6 +164,9 @@ body{
     transform:scale(.97);
 }
 
+
+/* MODAL */
+
 .modalOverlay{
     display:none;
     position:fixed;
@@ -156,8 +184,8 @@ body{
 
 .modal{
     width:100%;
-    max-width:480px;
-    max-height:90vh;
+    max-width:520px;
+    max-height:92vh;
     overflow-y:auto;
     background:white;
     border-radius:18px;
@@ -171,9 +199,12 @@ body{
     color:#c9151e;
 }
 
-.selectedProduct{
+
+/* ADD TO CART MODAL */
+
+.addProduct{
     display:flex;
-    gap:15px;
+    gap:14px;
     align-items:center;
     border:1px solid #ddd;
     border-radius:12px;
@@ -181,19 +212,19 @@ body{
     margin-bottom:18px;
 }
 
-.selectedProduct img{
-    width:80px;
-    height:80px;
+.addProduct img{
+    width:85px;
+    height:85px;
     object-fit:cover;
     border-radius:10px;
 }
 
-.selectedProductName{
-    font-weight:bold;
+.addProductName{
     font-size:18px;
+    font-weight:bold;
 }
 
-.selectedProductPrice{
+.addProductPrice{
     color:#c9151e;
     font-weight:bold;
     margin-top:5px;
@@ -231,38 +262,6 @@ body{
     font-weight:bold;
 }
 
-.paymentOptions{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:10px;
-}
-
-.paymentOption{
-    border:2px solid #ddd;
-    border-radius:10px;
-    padding:13px;
-    text-align:center;
-    cursor:pointer;
-    font-weight:bold;
-}
-
-.paymentOption.selected{
-    border-color:#c9151e;
-    background:#ffe8e9;
-    color:#c9151e;
-}
-
-.totalBox{
-    background:#f5f5f5;
-    border-radius:10px;
-    padding:15px;
-    margin:18px 0;
-    display:flex;
-    justify-content:space-between;
-    font-size:21px;
-    font-weight:bold;
-}
-
 .modalButtons{
     display:grid;
     grid-template-columns:1fr 1fr;
@@ -289,6 +288,153 @@ body{
     color:white;
 }
 
+
+/* CART */
+
+.cartList{
+    max-height:48vh;
+    overflow-y:auto;
+}
+
+.cartItem{
+    display:flex;
+    gap:12px;
+    align-items:center;
+    border:1px solid #ddd;
+    border-radius:12px;
+    padding:10px;
+    margin-bottom:10px;
+    background:#fafafa;
+}
+
+.cartItemImage{
+    width:70px;
+    height:70px;
+    object-fit:cover;
+    border-radius:9px;
+    flex-shrink:0;
+}
+
+.cartItemInfo{
+    flex:1;
+    min-width:0;
+}
+
+.cartItemName{
+    font-size:16px;
+    font-weight:bold;
+    margin-bottom:4px;
+}
+
+.cartItemPrice{
+    color:#c9151e;
+    font-weight:bold;
+}
+
+.cartItemQty{
+    display:flex;
+    align-items:center;
+    gap:7px;
+    margin-top:6px;
+}
+
+.smallQtyBtn{
+    width:29px;
+    height:29px;
+    border:0;
+    border-radius:50%;
+    background:#c9151e;
+    color:white;
+    font-size:18px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.cartItemQuantity{
+    min-width:25px;
+    text-align:center;
+    font-weight:bold;
+}
+
+.removeBtn{
+    border:0;
+    background:#ddd;
+    color:#a00000;
+    width:32px;
+    height:32px;
+    border-radius:50%;
+    font-weight:bold;
+    cursor:pointer;
+    flex-shrink:0;
+}
+
+.cartTotal{
+    background:#f5f5f5;
+    border-radius:10px;
+    padding:15px;
+    margin:15px 0;
+}
+
+.cartTotalRow{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    font-size:18px;
+    margin-bottom:7px;
+}
+
+.cartTotalRow:last-child{
+    margin-bottom:0;
+    padding-top:9px;
+    border-top:2px solid #ddd;
+    font-size:23px;
+    font-weight:bold;
+    color:#c9151e;
+}
+
+
+/* PAYMENT */
+
+.paymentOptions{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+    margin-bottom:15px;
+}
+
+.paymentOption{
+    border:2px solid #ddd;
+    border-radius:10px;
+    padding:13px;
+    text-align:center;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+.paymentOption.selected{
+    border-color:#c9151e;
+    background:#ffe8e9;
+    color:#c9151e;
+}
+
+
+/* EMPTY */
+
+.emptyCart{
+    text-align:center;
+    padding:30px 10px;
+    color:#777;
+}
+
+.loading{
+    text-align:center;
+    padding:25px;
+    color:#777;
+}
+
+
+/* SUCCESS */
+
 .successIcon{
     text-align:center;
     font-size:60px;
@@ -302,16 +448,36 @@ body{
 
 .orderNumber{
     color:#c9151e;
-    font-size:32px;
+    font-size:35px;
     font-weight:bold;
 }
 
-.cartList{
+.successItems{
+    margin-top:15px;
+    text-align:left;
+    background:#f7f7f7;
+    border-radius:10px;
+    padding:12px;
+}
+
+.successItem{
+    padding:6px 0;
+    border-bottom:1px solid #ddd;
+}
+
+.successItem:last-child{
+    border-bottom:0;
+}
+
+
+/* MY ORDERS */
+
+.myOrdersList{
     max-height:55vh;
     overflow-y:auto;
 }
 
-.cartItem{
+.myOrder{
     border:1px solid #ddd;
     border-radius:12px;
     padding:14px;
@@ -319,24 +485,32 @@ body{
     background:#fafafa;
 }
 
-.cartTop{
+.myOrderTop{
     display:flex;
     justify-content:space-between;
     gap:10px;
     font-weight:bold;
 }
 
-.cartOrderNumber{
+.myOrderNumber{
     color:#c9151e;
-}
-
-.cartProduct{
     font-size:18px;
-    font-weight:bold;
-    margin:7px 0;
 }
 
-.cartDetails{
+.myOrderItems{
+    margin:10px 0;
+}
+
+.myOrderItem{
+    padding:5px 0;
+    border-bottom:1px solid #e5e5e5;
+}
+
+.myOrderItem:last-child{
+    border-bottom:0;
+}
+
+.myOrderDetails{
     color:#555;
     font-size:14px;
     line-height:1.6;
@@ -372,19 +546,11 @@ body{
     color:#a40000;
 }
 
-.emptyCart{
-    text-align:center;
-    padding:30px 10px;
-    color:#777;
-}
 
-.loading{
-    text-align:center;
-    padding:25px;
-    color:#777;
-}
+/* MOBILE */
 
 @media(max-width:800px){
+
     .products{
         grid-template-columns:repeat(2,1fr);
     }
@@ -398,28 +564,30 @@ body{
     }
 
     .cartBtn{
-        font-size:15px;
-        padding:10px 12px;
+        font-size:14px;
+        padding:9px 11px;
     }
+
 }
 
 @media(max-width:500px){
+
     .header{
         height:60px;
         padding:0 9px;
     }
 
     .logo{
-        font-size:14px;
+        font-size:13px;
     }
 
     .title{
-        font-size:18px;
+        font-size:17px;
     }
 
     .cartBtn{
-        font-size:13px;
-        padding:8px 9px;
+        font-size:12px;
+        padding:8px 8px;
         border-radius:9px;
     }
 
@@ -447,7 +615,9 @@ body{
         font-size:14px;
         padding:11px 5px;
     }
+
 }
+
 </style>
 
 </head>
@@ -457,12 +627,24 @@ body{
 <header class="header">
 
 
-<div class="logo">🏪 Lets-ol Sari-sari Store</div>
+<div class="logo">
+    🏪 Lets-ol Sari-sari Store
+</div>
 
-<div class="title">ORDER HERE</div>
+<div class="title">
+    ORDER HERE
+</div>
 
-<button class="cartBtn" onclick="openCart()">
+<button class="cartBtn"
+        onclick="openCart()">
+
     🛒 CART
+
+    <span class="cartCount"
+          id="cartCount">
+        0
+    </span>
+
 </button>
 
 
@@ -473,149 +655,440 @@ body{
 
 <div class="products">
 
-    <div class="product">
-        <img src="picture1.png" alt="Pepperoni Pizza">
-        <div class="productInfo">
-            <div class="productName">Pepperoni Pizza</div>
-            <div class="price">₱105</div>
-            <button class="orderBtn"
-                onclick="openOrder('Pepperoni Pizza',105,'picture1.png')">
-                ORDER NOW
-            </button>
-        </div>
-    </div>
+
+    <!-- 1 -->
 
     <div class="product">
-        <img src="picture2.png" alt="Ham and Cheese Pizza">
+
+        <img src="picture1.png"
+             alt="Pepperoni Pizza">
+
         <div class="productInfo">
-            <div class="productName">Ham and Cheese Pizza</div>
-            <div class="price">₱95</div>
+
+            <div class="productName">
+                Pepperoni Pizza
+            </div>
+
+            <div class="price">
+                ₱105
+            </div>
+
             <button class="orderBtn"
-                onclick="openOrder('Ham and Cheese Pizza',95,'picture2.png')">
-                ORDER NOW
+                    onclick="openAddToCart('Pepperoni Pizza',105,'picture1.png')">
+
+                ADD TO CART
+
             </button>
+
         </div>
+
     </div>
 
-    <div class="product">
-        <img src="picture3.png" alt="Hawaiian Pizza">
-        <div class="productInfo">
-            <div class="productName">Hawaiian Pizza</div>
-            <div class="price">₱105</div>
-            <button class="orderBtn"
-                onclick="openOrder('Hawaiian Pizza',105,'picture3.png')">
-                ORDER NOW
-            </button>
-        </div>
-    </div>
+
+    <!-- 2 -->
 
     <div class="product">
-        <img src="picture4.png" alt="Bacon Pizza">
+
+        <img src="picture2.png"
+             alt="Ham and Cheese Pizza">
+
         <div class="productInfo">
-            <div class="productName">Bacon Pizza</div>
-            <div class="price">₱115</div>
+
+            <div class="productName">
+                Ham and Cheese Pizza
+            </div>
+
+            <div class="price">
+                ₱95
+            </div>
+
             <button class="orderBtn"
-                onclick="openOrder('Bacon Pizza',115,'picture4.png')">
-                ORDER NOW
+                    onclick="openAddToCart('Ham and Cheese Pizza',95,'picture2.png')">
+
+                ADD TO CART
+
             </button>
+
         </div>
+
     </div>
 
-    <div class="product">
-        <img src="picture5.png" alt="Bacon and Mushroom Pizza">
-        <div class="productInfo">
-            <div class="productName">Bacon and Mushroom Pizza</div>
-            <div class="price">₱115</div>
-            <button class="orderBtn"
-                onclick="openOrder('Bacon and Mushroom Pizza',115,'picture5.png')">
-                ORDER NOW
-            </button>
-        </div>
-    </div>
+
+    <!-- 3 -->
 
     <div class="product">
-        <img src="picture6.png" alt="Ham and Cheese Pizza">
+
+        <img src="picture3.png"
+             alt="Hawaiian Pizza">
+
         <div class="productInfo">
-            <div class="productName">Ham and Cheese Pizza</div>
-            <div class="price">₱188</div>
+
+            <div class="productName">
+                Hawaiian Pizza
+            </div>
+
+            <div class="price">
+                ₱105
+            </div>
+
             <button class="orderBtn"
-                onclick="openOrder('Ham and Cheese Pizza',188,'picture6.png')">
-                ORDER NOW
+                    onclick="openAddToCart('Hawaiian Pizza',105,'picture3.png')">
+
+                ADD TO CART
+
             </button>
+
         </div>
+
     </div>
+
+
+    <!-- 4 -->
+
+    <div class="product">
+
+        <img src="picture4.png"
+             alt="Bacon Pizza">
+
+        <div class="productInfo">
+
+            <div class="productName">
+                Bacon Pizza
+            </div>
+
+            <div class="price">
+                ₱115
+            </div>
+
+            <button class="orderBtn"
+                    onclick="openAddToCart('Bacon Pizza',115,'picture4.png')">
+
+                ADD TO CART
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- 5 -->
+
+    <div class="product">
+
+        <img src="picture5.png"
+             alt="Bacon and Mushroom Pizza">
+
+        <div class="productInfo">
+
+            <div class="productName">
+                Bacon and Mushroom Pizza
+            </div>
+
+            <div class="price">
+                ₱115
+            </div>
+
+            <button class="orderBtn"
+                    onclick="openAddToCart('Bacon and Mushroom Pizza',115,'picture5.png')">
+
+                ADD TO CART
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- 6 -->
+
+    <div class="product">
+
+        <img src="picture6.png"
+             alt="Ham and Cheese Pizza">
+
+        <div class="productInfo">
+
+            <div class="productName">
+                Ham and Cheese Pizza
+            </div>
+
+            <div class="price">
+                ₱188
+            </div>
+
+            <button class="orderBtn"
+                    onclick="openAddToCart('Ham and Cheese Pizza',188,'picture6.png')">
+
+                ADD TO CART
+
+            </button>
+
+        </div>
+
+    </div>
+
 
 </div>
 
 
 </div>
 
-<!-- ORDER MODAL -->
+<!-- ======================================================
+     ADD TO CART MODAL
+====================================================== -->
 
-<div class="modalOverlay" id="orderModal">
+<div class="modalOverlay"
+     id="addCartModal">
 
 
 <div class="modal">
 
-    <h2>CONFIRM ORDER</h2>
+    <h2>
+        ADD TO CART
+    </h2>
 
-    <div class="selectedProduct">
 
-        <img id="selectedImage" src="" alt="">
+    <div class="addProduct">
+
+        <img id="addProductImage"
+             src=""
+             alt="">
 
         <div>
-            <div class="selectedProductName" id="selectedName"></div>
-            <div class="selectedProductPrice" id="selectedPrice"></div>
+
+            <div class="addProductName"
+                 id="addProductName">
+            </div>
+
+            <div class="addProductPrice"
+                 id="addProductPrice">
+            </div>
+
         </div>
 
     </div>
 
-    <div class="label">QUANTITY</div>
+
+    <div class="label">
+        QUANTITY
+    </div>
+
 
     <div class="quantityBox">
 
-        <button class="qtyBtn" onclick="changeQuantity(-1)">−</button>
+        <button class="qtyBtn"
+                onclick="changeAddQuantity(-1)">
+            −
+        </button>
 
-        <div class="qtyValue" id="quantity">1</div>
+        <div class="qtyValue"
+             id="addQuantity">
+            1
+        </div>
 
-        <button class="qtyBtn" onclick="changeQuantity(1)">+</button>
+        <button class="qtyBtn"
+                onclick="changeAddQuantity(1)">
+            +
+        </button>
 
     </div>
 
-    <div class="label">PAYMENT</div>
+
+    <div class="modalButtons">
+
+        <button class="cancelBtn"
+                onclick="closeAddToCart()">
+
+            CANCEL
+
+        </button>
+
+        <button class="confirmBtn"
+                onclick="addSelectedToCart()">
+
+            ADD TO CART
+
+        </button>
+
+    </div>
+
+</div>
+
+
+</div>
+
+<!-- ======================================================
+     CART MODAL
+====================================================== -->
+
+<div class="modalOverlay"
+     id="cartModal">
+
+
+<div class="modal">
+
+    <h2>
+        🛒 MY CART
+    </h2>
+
+
+    <div id="cartList"
+         class="cartList">
+
+        <div class="emptyCart">
+            Your cart is empty.
+        </div>
+
+    </div>
+
+
+    <div id="cartSummary"
+         class="cartTotal"
+         style="display:none;">
+
+        <div class="cartTotalRow">
+
+            <span>
+                Items
+            </span>
+
+            <span id="cartItemsCount">
+                0
+            </span>
+
+        </div>
+
+
+        <div class="cartTotalRow">
+
+            <span>
+                TOTAL
+            </span>
+
+            <span id="cartTotal">
+                ₱0
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <div class="modalButtons">
+
+        <button class="cancelBtn"
+                onclick="closeCart()">
+
+            CONTINUE SHOPPING
+
+        </button>
+
+        <button class="confirmBtn"
+                onclick="openCheckout()">
+
+            CHECKOUT
+
+        </button>
+
+    </div>
+
+</div>
+
+
+</div>
+
+<!-- ======================================================
+     CHECKOUT MODAL
+====================================================== -->
+
+<div class="modalOverlay"
+     id="checkoutModal">
+
+
+<div class="modal">
+
+    <h2>
+        CONFIRM ORDER
+    </h2>
+
+
+    <div id="checkoutItems">
+    </div>
+
+
+    <div class="cartTotal">
+
+        <div class="cartTotalRow">
+
+            <span>
+                TOTAL ITEMS
+            </span>
+
+            <span id="checkoutItemCount">
+                0
+            </span>
+
+        </div>
+
+
+        <div class="cartTotalRow">
+
+            <span>
+                TOTAL
+            </span>
+
+            <span id="checkoutTotal">
+                ₱0
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <div class="label">
+        PAYMENT
+    </div>
+
 
     <div class="paymentOptions">
 
         <div class="paymentOption selected"
              id="cashPayment"
              onclick="selectPayment('Cash')">
+
             💵 CASH
+
         </div>
+
 
         <div class="paymentOption"
              id="gcashPayment"
              onclick="selectPayment('GCash')">
+
             📱 GCASH
+
         </div>
 
     </div>
 
-    <div class="totalBox">
-
-        <span>TOTAL</span>
-
-        <span id="totalPrice">₱0</span>
-
-    </div>
 
     <div class="modalButtons">
 
-        <button class="cancelBtn" onclick="closeOrder()">
-            CANCEL
+        <button class="cancelBtn"
+                onclick="closeCheckout()">
+
+            BACK
+
         </button>
 
-        <button class="confirmBtn" onclick="confirmOrder()">
+        <button class="confirmBtn"
+                onclick="confirmOrder()">
+
             CONFIRM ORDER
+
         </button>
 
     </div>
@@ -625,37 +1098,87 @@ body{
 
 </div>
 
-<!-- SUCCESS MODAL -->
+<!-- ======================================================
+     SUCCESS MODAL
+====================================================== -->
 
-<div class="modalOverlay" id="successModal">
+<div class="modalOverlay"
+     id="successModal">
 
 
 <div class="modal">
 
-    <div class="successIcon">✅</div>
+    <div class="successIcon">
+        ✅
+    </div>
 
-    <h2>ORDER SUCCESSFUL</h2>
+    <h2>
+        ORDER SUCCESSFUL
+    </h2>
+
 
     <div class="successText">
 
-        <div>Your Order Number is</div>
+        <div>
+            Your Order Number is
+        </div>
 
-        <div class="orderNumber" id="successOrderNumber">
+        <div class="orderNumber"
+             id="successOrderNumber">
             #
         </div>
 
-        <p id="successProduct"></p>
+    </div>
 
-        <p>
-            Please wait for the store to accept your order.
-        </p>
+
+    <div class="successItems"
+         id="successItems">
+    </div>
+
+
+    <div class="cartTotal">
+
+        <div class="cartTotalRow">
+
+            <span>
+                PAYMENT
+            </span>
+
+            <span id="successPayment">
+            </span>
+
+        </div>
+
+
+        <div class="cartTotalRow">
+
+            <span>
+                TOTAL
+            </span>
+
+            <span id="successTotal">
+                ₱0
+            </span>
+
+        </div>
 
     </div>
+
+
+    <p style="text-align:center;">
+
+        Please wait for the store to accept
+        your order.
+
+    </p>
+
 
     <button class="confirmBtn"
             style="width:100%;"
             onclick="closeSuccess()">
+
         OK
+
     </button>
 
 </div>
@@ -663,23 +1186,37 @@ body{
 
 </div>
 
-<!-- CART MODAL -->
+<!-- ======================================================
+     MY ORDERS MODAL
+====================================================== -->
 
-<div class="modalOverlay" id="cartModal">
+<div class="modalOverlay"
+     id="myOrdersModal">
 
 
 <div class="modal">
 
-    <h2>🛒 MY ORDERS</h2>
+    <h2>
+        📋 MY ORDERS
+    </h2>
 
-    <div id="cartList" class="cartList">
-        <div class="loading">Loading orders...</div>
+
+    <div id="myOrdersList"
+         class="myOrdersList">
+
+        <div class="loading">
+            Loading orders...
+        </div>
+
     </div>
+
 
     <button class="cancelBtn"
             style="width:100%;margin-top:12px;"
-            onclick="closeCart()">
+            onclick="closeMyOrders()">
+
         CLOSE
+
     </button>
 
 </div>
@@ -689,9 +1226,11 @@ body{
 
 <script type="module">
 
+
 import {
     initializeApp
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
 
 import {
     getDatabase,
@@ -707,33 +1246,50 @@ import {
 
 const firebaseConfig = {
 
-    apiKey: "AIzaSyBiKccKbLiKUUYYxFdiAfiyODhV-4cH7Qc",
+    apiKey:
+        "AIzaSyBiKccKbLiKUUYYxFdiAfiyODhV-4cH7Qc",
 
-    authDomain: "lets-ol.firebaseapp.com",
+    authDomain:
+        "lets-ol.firebaseapp.com",
 
-    databaseURL: "https://lets-ol-default-rtdb.firebaseio.com/",
+    databaseURL:
+        "https://lets-ol-default-rtdb.firebaseio.com/",
 
-    projectId: "lets-ol",
+    projectId:
+        "lets-ol",
 
-    storageBucket: "lets-ol.firebasestorage.app",
+    storageBucket:
+        "lets-ol.firebasestorage.app",
 
-    messagingSenderId: "657291655058",
+    messagingSenderId:
+        "657291655058",
 
-    appId: "1:657291655058:web:68bd82199760268f84f34b",
+    appId:
+        "1:657291655058:web:68bd82199760268f84f34b",
 
-    measurementId: "G-7TVM23CQX6"
+    measurementId:
+        "G-7TVM23CQX6"
 
 };
 
 
-const app = initializeApp(firebaseConfig);
+const app =
+    initializeApp(firebaseConfig);
 
-const db = getDatabase(app);
+
+const db =
+    getDatabase(app);
 
 
-/* CUSTOMER ID */
+/* ======================================================
+   CUSTOMER ID
+====================================================== */
 
-let customerId = localStorage.getItem("letsOlCustomerId");
+let customerId =
+    localStorage.getItem(
+        "letsOlCustomerId"
+    );
+
 
 if(!customerId){
 
@@ -749,10 +1305,21 @@ if(!customerId){
         "letsOlCustomerId",
         customerId
     );
+
 }
 
 
-/* ORDER VARIABLES */
+/* ======================================================
+   CART
+====================================================== */
+
+let cart =
+    JSON.parse(
+        localStorage.getItem(
+            "letsOlCart"
+        ) || "[]"
+    );
+
 
 let selectedProduct = null;
 
@@ -760,149 +1327,735 @@ let selectedPrice = 0;
 
 let selectedImage = "";
 
-let quantity = 1;
+let addQuantity = 1;
 
 let payment = "Cash";
 
 let myOrders = {};
 
 
-/* OPEN ORDER */
+/* ======================================================
+   SAVE CART
+====================================================== */
 
-window.openOrder = function(product,price,image){
+function saveCart(){
 
-    selectedProduct = product;
+    localStorage.setItem(
+        "letsOlCart",
+        JSON.stringify(cart)
+    );
 
-    selectedPrice = price;
-
-    selectedImage = image;
-
-    quantity = 1;
-
-    payment = "Cash";
-
-    document.getElementById("selectedName").textContent =
-        product;
-
-    document.getElementById("selectedPrice").textContent =
-        "₱" + price;
-
-    document.getElementById("selectedImage").src =
-        image;
-
-    document.getElementById("quantity").textContent =
-        quantity;
-
-    document.getElementById("cashPayment")
-        .classList.add("selected");
-
-    document.getElementById("gcashPayment")
-        .classList.remove("selected");
-
-    updateTotal();
-
-    document.getElementById("orderModal")
-        .classList.add("show");
-};
-
-
-/* CLOSE ORDER */
-
-window.closeOrder = function(){
-
-    document.getElementById("orderModal")
-        .classList.remove("show");
-
-};
-
-
-/* QUANTITY */
-
-window.changeQuantity = function(change){
-
-    quantity += change;
-
-    if(quantity < 1){
-        quantity = 1;
-    }
-
-    if(quantity > 20){
-        quantity = 20;
-    }
-
-    document.getElementById("quantity").textContent =
-        quantity;
-
-    updateTotal();
-
-};
-
-
-/* TOTAL */
-
-function updateTotal(){
-
-    const total =
-        selectedPrice * quantity;
-
-    document.getElementById("totalPrice").textContent =
-        "₱" + total.toLocaleString();
+    updateCartCount();
 
 }
 
 
-/* PAYMENT */
+/* ======================================================
+   CART COUNT
+====================================================== */
 
-window.selectPayment = function(type){
+function updateCartCount(){
 
-    payment = type;
-
-    document.getElementById("cashPayment")
-        .classList.toggle(
-            "selected",
-            type === "Cash"
+    const count =
+        cart.reduce(
+            (sum,item) =>
+                sum +
+                Number(
+                    item.quantity || 0
+                ),
+            0
         );
 
-    document.getElementById("gcashPayment")
-        .classList.toggle(
-            "selected",
-            type === "GCash"
-        );
+
+    document.getElementById(
+        "cartCount"
+    ).textContent =
+        count;
+
+}
+
+
+updateCartCount();
+
+
+/* ======================================================
+   OPEN ADD TO CART
+====================================================== */
+
+window.openAddToCart =
+function(
+    product,
+    price,
+    image
+){
+
+    selectedProduct =
+        product;
+
+    selectedPrice =
+        price;
+
+    selectedImage =
+        image;
+
+    addQuantity = 1;
+
+
+    document.getElementById(
+        "addProductName"
+    ).textContent =
+        product;
+
+
+    document.getElementById(
+        "addProductPrice"
+    ).textContent =
+        "₱" +
+        price.toLocaleString();
+
+
+    document.getElementById(
+        "addProductImage"
+    ).src =
+        image;
+
+
+    document.getElementById(
+        "addQuantity"
+    ).textContent =
+        addQuantity;
+
+
+    document.getElementById(
+        "addCartModal"
+    ).classList.add("show");
 
 };
 
 
-/*
-==================================================
-SEQUENTIAL ORDER NUMBER
+/* ======================================================
+   CLOSE ADD TO CART
+====================================================== */
 
-1 → 2 → 3 → ... → 99 → 100 → 1 → 2 ...
-==================================================
-*/
+window.closeAddToCart =
+function(){
+
+    document.getElementById(
+        "addCartModal"
+    ).classList.remove("show");
+
+};
+
+
+/* ======================================================
+   CHANGE ADD QUANTITY
+====================================================== */
+
+window.changeAddQuantity =
+function(change){
+
+    addQuantity += change;
+
+
+    if(addQuantity < 1){
+
+        addQuantity = 1;
+
+    }
+
+
+    if(addQuantity > 20){
+
+        addQuantity = 20;
+
+    }
+
+
+    document.getElementById(
+        "addQuantity"
+    ).textContent =
+        addQuantity;
+
+};
+
+
+/* ======================================================
+   ADD SELECTED PRODUCT
+====================================================== */
+
+window.addSelectedToCart =
+function(){
+
+    if(!selectedProduct){
+
+        return;
+
+    }
+
+
+    /*
+    If same product already exists,
+    increase its quantity instead
+    of creating another line.
+    */
+
+    const existing =
+        cart.find(
+            item =>
+                item.product ===
+                selectedProduct &&
+                Number(item.price) ===
+                Number(selectedPrice)
+        );
+
+
+    if(existing){
+
+        existing.quantity +=
+            addQuantity;
+
+        if(existing.quantity > 20){
+
+            existing.quantity = 20;
+
+        }
+
+    }
+    else{
+
+        cart.push({
+
+            product:
+                selectedProduct,
+
+            price:
+                selectedPrice,
+
+            image:
+                selectedImage,
+
+            quantity:
+                addQuantity
+
+        });
+
+    }
+
+
+    saveCart();
+
+    closeAddToCart();
+
+
+    /*
+    Small visual confirmation.
+    */
+
+    alert(
+        selectedProduct +
+        " added to cart."
+    );
+
+};
+
+
+/* ======================================================
+   OPEN CART
+====================================================== */
+
+window.openCart =
+function(){
+
+    renderCart();
+
+    document.getElementById(
+        "cartModal"
+    ).classList.add("show");
+
+};
+
+
+/* ======================================================
+   CLOSE CART
+====================================================== */
+
+window.closeCart =
+function(){
+
+    document.getElementById(
+        "cartModal"
+    ).classList.remove("show");
+
+};
+
+
+/* ======================================================
+   RENDER CART
+====================================================== */
+
+function renderCart(){
+
+    const list =
+        document.getElementById(
+            "cartList"
+        );
+
+
+    const summary =
+        document.getElementById(
+            "cartSummary"
+        );
+
+
+    if(cart.length === 0){
+
+        list.innerHTML = `
+
+            <div class="emptyCart">
+
+                Your cart is empty.
+
+                <br><br>
+
+                Add some products first.
+
+            </div>
+
+        `;
+
+        summary.style.display =
+            "none";
+
+        return;
+
+    }
+
+
+    list.innerHTML = "";
+
+
+    let totalItems = 0;
+
+    let total = 0;
+
+
+    cart.forEach(
+        (item,index) => {
+
+            const quantity =
+                Number(
+                    item.quantity || 0
+                );
+
+
+            const price =
+                Number(
+                    item.price || 0
+                );
+
+
+            const itemTotal =
+                quantity * price;
+
+
+            totalItems +=
+                quantity;
+
+
+            total +=
+                itemTotal;
+
+
+            const div =
+                document.createElement(
+                    "div"
+                );
+
+
+            div.className =
+                "cartItem";
+
+
+            div.innerHTML = `
+
+                <img
+                    class="cartItemImage"
+                    src="${escapeHtml(
+                        item.image || ""
+                    )}"
+                    alt=""
+                >
+
+
+                <div class="cartItemInfo">
+
+                    <div class="cartItemName">
+
+                        ${escapeHtml(
+                            item.product || ""
+                        )}
+
+                    </div>
+
+
+                    <div class="cartItemPrice">
+
+                        ₱${price.toLocaleString()}
+
+                    </div>
+
+
+                    <div class="cartItemQty">
+
+                        <button
+                            class="smallQtyBtn"
+                            onclick="changeCartQuantity(${index},-1)">
+
+                            −
+
+                        </button>
+
+
+                        <span class="cartItemQuantity">
+
+                            ${quantity}
+
+                        </span>
+
+
+                        <button
+                            class="smallQtyBtn"
+                            onclick="changeCartQuantity(${index},1)">
+
+                            +
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <button
+                    class="removeBtn"
+                    onclick="removeCartItem(${index})">
+
+                    ×
+
+                </button>
+
+            `;
+
+
+            list.appendChild(div);
+
+        }
+    );
+
+
+    document.getElementById(
+        "cartItemsCount"
+    ).textContent =
+        totalItems;
+
+
+    document.getElementById(
+        "cartTotal"
+    ).textContent =
+        "₱" +
+        total.toLocaleString();
+
+
+    summary.style.display =
+        "block";
+
+}
+
+
+/* ======================================================
+   CHANGE CART QUANTITY
+====================================================== */
+
+window.changeCartQuantity =
+function(index,change){
+
+    if(!cart[index]){
+
+        return;
+
+    }
+
+
+    cart[index].quantity +=
+        change;
+
+
+    if(cart[index].quantity < 1){
+
+        cart[index].quantity = 1;
+
+    }
+
+
+    if(cart[index].quantity > 20){
+
+        cart[index].quantity = 20;
+
+    }
+
+
+    saveCart();
+
+    renderCart();
+
+};
+
+
+/* ======================================================
+   REMOVE CART ITEM
+====================================================== */
+
+window.removeCartItem =
+function(index){
+
+    if(!cart[index]){
+
+        return;
+
+    }
+
+
+    cart.splice(
+        index,
+        1
+    );
+
+
+    saveCart();
+
+    renderCart();
+
+};
+
+
+/* ======================================================
+   OPEN CHECKOUT
+====================================================== */
+
+window.openCheckout =
+function(){
+
+    if(cart.length === 0){
+
+        alert(
+            "Your cart is empty."
+        );
+
+        return;
+
+    }
+
+
+    renderCheckout();
+
+
+    payment =
+        "Cash";
+
+
+    document.getElementById(
+        "cashPayment"
+    ).classList.add("selected");
+
+
+    document.getElementById(
+        "gcashPayment"
+    ).classList.remove("selected");
+
+
+    document.getElementById(
+        "checkoutModal"
+    ).classList.add("show");
+
+};
+
+
+/* ======================================================
+   RENDER CHECKOUT
+====================================================== */
+
+function renderCheckout(){
+
+    const container =
+        document.getElementById(
+            "checkoutItems"
+        );
+
+
+    container.innerHTML = "";
+
+
+    let totalItems = 0;
+
+    let total = 0;
+
+
+    cart.forEach(
+        item => {
+
+            const quantity =
+                Number(
+                    item.quantity || 0
+                );
+
+
+            const price =
+                Number(
+                    item.price || 0
+                );
+
+
+            const itemTotal =
+                quantity * price;
+
+
+            totalItems +=
+                quantity;
+
+
+            total +=
+                itemTotal;
+
+
+            const div =
+                document.createElement(
+                    "div"
+                );
+
+
+            div.className =
+                "myOrderItem";
+
+
+            div.innerHTML = `
+
+                <strong>
+                    ${escapeHtml(
+                        item.product || ""
+                    )}
+                </strong>
+
+                × ${quantity}
+
+                — ₱${itemTotal.toLocaleString()}
+
+            `;
+
+
+            container.appendChild(div);
+
+        }
+    );
+
+
+    document.getElementById(
+        "checkoutItemCount"
+    ).textContent =
+        totalItems;
+
+
+    document.getElementById(
+        "checkoutTotal"
+    ).textContent =
+        "₱" +
+        total.toLocaleString();
+
+}
+
+
+/* ======================================================
+   CLOSE CHECKOUT
+====================================================== */
+
+window.closeCheckout =
+function(){
+
+    document.getElementById(
+        "checkoutModal"
+    ).classList.remove("show");
+
+};
+
+
+/* ======================================================
+   PAYMENT
+====================================================== */
+
+window.selectPayment =
+function(type){
+
+    payment =
+        type;
+
+
+    document.getElementById(
+        "cashPayment"
+    ).classList.toggle(
+        "selected",
+        type === "Cash"
+    );
+
+
+    document.getElementById(
+        "gcashPayment"
+    ).classList.toggle(
+        "selected",
+        type === "GCash"
+    );
+
+};
+
+
+/* ======================================================
+   NEXT SEQUENTIAL ORDER NUMBER
+====================================================== */
 
 async function getNextOrderNumber(){
 
     const sequenceRef =
-        ref(db,"orderSequence/current");
+        ref(
+            db,
+            "orderSequence/current"
+        );
 
-    const result = await runTransaction(
-        sequenceRef,
-        currentValue => {
 
-            let current =
-                Number(currentValue) || 0;
+    const result =
+        await runTransaction(
+            sequenceRef,
+            currentValue => {
 
-            let next =
-                current + 1;
+                let current =
+                    Number(
+                        currentValue
+                    ) || 0;
 
-            if(next > 100){
-                next = 1;
+
+                let next =
+                    current + 1;
+
+
+                if(next > 100){
+
+                    next = 1;
+
+                }
+
+
+                return next;
+
             }
+        );
 
-            return next;
-
-        }
-    );
 
     if(!result.committed){
 
@@ -912,6 +2065,7 @@ async function getNextOrderNumber(){
 
     }
 
+
     return String(
         result.snapshot.val()
     );
@@ -919,24 +2073,33 @@ async function getNextOrderNumber(){
 }
 
 
-/* CONFIRM ORDER */
+/* ======================================================
+   CONFIRM WHOLE CART ORDER
+====================================================== */
 
-window.confirmOrder = async function(){
+window.confirmOrder =
+async function(){
 
-    if(!selectedProduct){
+    if(cart.length === 0){
 
-        alert("Please select a product.");
+        alert(
+            "Your cart is empty."
+        );
 
         return;
 
     }
 
+
     const confirmButton =
         document.querySelector(
-            "#orderModal .confirmBtn"
+            "#checkoutModal .confirmBtn"
         );
 
-    confirmButton.disabled = true;
+
+    confirmButton.disabled =
+        true;
+
 
     confirmButton.textContent =
         "PROCESSING...";
@@ -945,17 +2108,74 @@ window.confirmOrder = async function(){
     try{
 
         /*
-        Generate the next global sequential number.
-        This is NOT random.
+        ONE ORDER NUMBER
+        FOR THE WHOLE CART
         */
 
         const orderNumber =
             await getNextOrderNumber();
 
 
-        const total =
-            selectedPrice * quantity;
+        let totalItems = 0;
 
+        let total = 0;
+
+
+        const items =
+            cart.map(
+                item => {
+
+                    const quantity =
+                        Number(
+                            item.quantity || 0
+                        );
+
+
+                    const price =
+                        Number(
+                            item.price || 0
+                        );
+
+
+                    const itemTotal =
+                        quantity *
+                        price;
+
+
+                    totalItems +=
+                        quantity;
+
+
+                    total +=
+                        itemTotal;
+
+
+                    return {
+
+                        product:
+                            item.product,
+
+                        price:
+                            price,
+
+                        quantity:
+                            quantity,
+
+                        image:
+                            item.image,
+
+                        total:
+                            itemTotal
+
+                    };
+
+                }
+            );
+
+
+        /*
+        ONE FIREBASE RECORD
+        */
 
         const orderData = {
 
@@ -965,23 +2185,17 @@ window.confirmOrder = async function(){
             customerId:
                 customerId,
 
-            product:
-                selectedProduct,
+            items:
+                items,
 
-            price:
-                selectedPrice,
-
-            quantity:
-                quantity,
+            itemCount:
+                totalItems,
 
             total:
                 total,
 
             payment:
                 payment,
-
-            image:
-                selectedImage,
 
             status:
                 "Pending",
@@ -993,38 +2207,121 @@ window.confirmOrder = async function(){
 
 
         await push(
-            ref(db,"orders"),
+            ref(
+                db,
+                "orders"
+            ),
             orderData
         );
 
 
+        /*
+        SAVE VALUES FOR SUCCESS SCREEN
+        */
+
         document.getElementById(
             "successOrderNumber"
         ).textContent =
-            "#" + orderNumber;
+            "#" +
+            orderNumber;
 
 
         document.getElementById(
-            "successProduct"
+            "successPayment"
         ).textContent =
-            selectedProduct +
-            " × " +
-            quantity +
-            " — ₱" +
+            payment;
+
+
+        document.getElementById(
+            "successTotal"
+        ).textContent =
+            "₱" +
             total.toLocaleString();
 
 
-        document.getElementById(
-            "orderModal"
-        ).classList.remove("show");
+        const successItems =
+            document.getElementById(
+                "successItems"
+            );
 
+
+        successItems.innerHTML = "";
+
+
+        items.forEach(
+            item => {
+
+                const div =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                div.className =
+                    "successItem";
+
+
+                div.innerHTML = `
+
+                    ${escapeHtml(
+                        item.product
+                    )}
+
+                    × ${item.quantity}
+
+                    — ₱${item.total.toLocaleString()}
+
+                `;
+
+
+                successItems.appendChild(
+                    div
+                );
+
+            }
+        );
+
+
+        /*
+        CLEAR CART
+        */
+
+        cart = [];
+
+        saveCart();
+
+
+        /*
+        CLOSE CHECKOUT
+        */
+
+        document.getElementById(
+            "checkoutModal"
+        ).classList.remove(
+            "show"
+        );
+
+
+        document.getElementById(
+            "cartModal"
+        ).classList.remove(
+            "show"
+        );
+
+
+        /*
+        SHOW SUCCESS
+        */
 
         document.getElementById(
             "successModal"
-        ).classList.add("show");
+        ).classList.add(
+            "show"
+        );
 
 
-    }catch(error){
+    }
+    catch(error){
 
         console.error(error);
 
@@ -1033,9 +2330,11 @@ window.confirmOrder = async function(){
             error.message
         );
 
-    }finally{
+    }
+    finally{
 
-        confirmButton.disabled = false;
+        confirmButton.disabled =
+            false;
 
         confirmButton.textContent =
             "CONFIRM ORDER";
@@ -1045,46 +2344,68 @@ window.confirmOrder = async function(){
 };
 
 
-/* SUCCESS */
+/* ======================================================
+   SUCCESS
+====================================================== */
 
-window.closeSuccess = function(){
+window.closeSuccess =
+function(){
 
     document.getElementById(
         "successModal"
-    ).classList.remove("show");
+    ).classList.remove(
+        "show"
+    );
 
 };
 
 
-/* CART */
+/* ======================================================
+   MY ORDERS
+====================================================== */
 
-window.openCart = function(){
+window.openMyOrders =
+function(){
+
+    renderMyOrders();
 
     document.getElementById(
-        "cartModal"
-    ).classList.add("show");
-
-    renderCart();
+        "myOrdersModal"
+    ).classList.add(
+        "show"
+    );
 
 };
 
 
-window.closeCart = function(){
+window.closeMyOrders =
+function(){
 
     document.getElementById(
-        "cartModal"
-    ).classList.remove("show");
+        "myOrdersModal"
+    ).classList.remove(
+        "show"
+    );
 
 };
 
 
-/* LOAD CUSTOMER ORDERS */
+/* ======================================================
+   LOAD CUSTOMER ORDERS
+====================================================== */
 
 const customerOrdersQuery =
     query(
-        ref(db,"orders"),
-        orderByChild("customerId"),
-        equalTo(customerId)
+        ref(
+            db,
+            "orders"
+        ),
+        orderByChild(
+            "customerId"
+        ),
+        equalTo(
+            customerId
+        )
     );
 
 
@@ -1095,7 +2416,7 @@ onValue(
         myOrders =
             snapshot.val() || {};
 
-        renderCart();
+        renderMyOrders();
 
         checkOrderNotifications();
 
@@ -1111,23 +2432,35 @@ onValue(
 );
 
 
-/* CART DISPLAY */
+/* ======================================================
+   RENDER MY ORDERS
+====================================================== */
 
-function renderCart(){
+function renderMyOrders(){
 
-    const cartList =
-        document.getElementById("cartList");
+    const list =
+        document.getElementById(
+            "myOrdersList"
+        );
+
 
     const orders =
-        Object.entries(myOrders || {});
+        Object.entries(
+            myOrders || {}
+        );
 
 
     if(orders.length === 0){
 
-        cartList.innerHTML =
-            '<div class="emptyCart">' +
-            'No orders yet.' +
-            '</div>';
+        list.innerHTML = `
+
+            <div class="emptyCart">
+
+                No orders yet.
+
+            </div>
+
+        `;
 
         return;
 
@@ -1136,70 +2469,151 @@ function renderCart(){
 
     orders.sort(
         (a,b) =>
-            (b[1].createdAt || 0) -
-            (a[1].createdAt || 0)
+            Number(
+                b[1].createdAt || 0
+            )
+            -
+            Number(
+                a[1].createdAt || 0
+            )
     );
 
 
-    cartList.innerHTML = "";
+    list.innerHTML = "";
 
 
     orders.forEach(
         ([key,order]) => {
 
-            const item =
-                document.createElement("div");
+            const div =
+                document.createElement(
+                    "div"
+                );
 
-            item.className =
-                "cartItem";
 
-
-            const date =
-                order.createdAt
-                    ? new Date(
-                        order.createdAt
-                      ).toLocaleString()
-                    : "";
+            div.className =
+                "myOrder";
 
 
             const status =
-                order.status || "Pending";
+                order.status ||
+                "Pending";
 
 
-            item.innerHTML = `
+            let itemsHTML = "";
 
-                <div class="cartTop">
 
-                    <span>
-                        Order
-                        <span class="cartOrderNumber">
-                            #${escapeHtml(
-                                String(
-                                    order.orderNumber || ""
-                                )
-                            )}
-                        </span>
+            /*
+            NEW CART ORDER FORMAT
+            */
+
+            if(
+                Array.isArray(
+                    order.items
+                )
+            ){
+
+                order.items.forEach(
+                    item => {
+
+                        itemsHTML += `
+
+                            <div class="myOrderItem">
+
+                                ${escapeHtml(
+                                    item.product || ""
+                                )}
+
+                                × ${Number(
+                                    item.quantity || 0
+                                )}
+
+                                — ₱${Number(
+                                    item.total || 0
+                                ).toLocaleString()}
+
+                            </div>
+
+                        `;
+
+                    }
+                );
+
+            }
+
+
+            /*
+            OLD SINGLE PRODUCT FORMAT
+            */
+
+            else if(order.product){
+
+                itemsHTML = `
+
+                    <div class="myOrderItem">
+
+                        ${escapeHtml(
+                            order.product
+                        )}
+
+                        × ${Number(
+                            order.quantity || 0
+                        )}
+
+                        — ₱${Number(
+                            order.total || 0
+                        ).toLocaleString()}
+
+                    </div>
+
+                `;
+
+            }
+
+
+            div.innerHTML = `
+
+                <div class="myOrderTop">
+
+                    <span class="myOrderNumber">
+
+                        Order #
+
+                        ${escapeHtml(
+                            String(
+                                order.orderNumber || ""
+                            )
+                        )}
+
                     </span>
 
+
                     <span>
+
                         ₱${Number(
                             order.total || 0
                         ).toLocaleString()}
+
                     </span>
 
                 </div>
 
-                <div class="cartProduct">
-                    ${escapeHtml(
-                        order.product || ""
-                    )}
+
+                <div class="myOrderItems">
+
+                    ${itemsHTML}
+
                 </div>
 
-                <div class="cartDetails">
 
-                    Quantity:
+                <div class="myOrderDetails">
+
+                    Items:
                     ${Number(
-                        order.quantity || 0
+                        order.itemCount ||
+                        calculateItemCount(
+                            order
+                        )
                     )}
 
                     <br>
@@ -1211,18 +2625,27 @@ function renderCart(){
 
                     <br>
 
-                    ${escapeHtml(date)}
+                    ${escapeHtml(
+                        formatDate(
+                            order.createdAt
+                        )
+                    )}
 
                 </div>
 
+
                 <span class="status ${escapeHtml(status)}">
+
                     ${escapeHtml(status)}
+
                 </span>
 
             `;
 
 
-            cartList.appendChild(item);
+            list.appendChild(
+                div
+            );
 
         }
     );
@@ -1230,26 +2653,42 @@ function renderCart(){
 }
 
 
-/* HTML ESCAPE */
+/* ======================================================
+   ITEM COUNT
+====================================================== */
 
-function escapeHtml(value){
+function calculateItemCount(
+    order
+){
 
-    return String(value)
-        .replace(/&/g,"&amp;")
-        .replace(/</g,"&lt;")
-        .replace(/>/g,"&gt;")
-        .replace(/"/g,"&quot;")
-        .replace(/'/g,"&#039;");
+    if(
+        Array.isArray(
+            order.items
+        )
+    ){
+
+        return order.items.reduce(
+            (sum,item) =>
+                sum +
+                Number(
+                    item.quantity || 0
+                ),
+            0
+        );
+
+    }
+
+
+    return Number(
+        order.quantity || 0
+    );
 
 }
 
 
-/*
-==================================================
-ORDER NOTIFICATION / BEEP
-==================================================
-*/
-
+/* ======================================================
+   BEEP
+====================================================== */
 
 function beepOnce(){
 
@@ -1259,40 +2698,58 @@ function beepOnce(){
             window.AudioContext ||
             window.webkitAudioContext;
 
-        if(!AudioContext) return;
+
+        if(!AudioContext){
+
+            return;
+
+        }
+
 
         const audioContext =
             new AudioContext();
 
+
         const oscillator =
             audioContext.createOscillator();
+
 
         const gain =
             audioContext.createGain();
 
+
         oscillator.type =
             "sine";
+
 
         oscillator.frequency.value =
             900;
 
+
         gain.gain.value =
             0.15;
 
-        oscillator.connect(gain);
+
+        oscillator.connect(
+            gain
+        );
+
 
         gain.connect(
             audioContext.destination
         );
 
+
         oscillator.start();
+
 
         oscillator.stop(
             audioContext.currentTime +
             0.18
         );
 
-    }catch(error){
+    }
+    catch(error){
 
         console.log(
             "Beep error:",
@@ -1304,9 +2761,14 @@ function beepOnce(){
 }
 
 
+/* ======================================================
+   10 BEEPS
+====================================================== */
+
 function beepTenTimes(){
 
     let count = 0;
+
 
     const interval =
         setInterval(
@@ -1315,6 +2777,7 @@ function beepTenTimes(){
                 beepOnce();
 
                 count++;
+
 
                 if(count >= 10){
 
@@ -1331,7 +2794,46 @@ function beepTenTimes(){
 }
 
 
-/* CHECK STATUS CHANGES */
+/* ======================================================
+   NOTIFICATIONS
+====================================================== */
+
+function showNotification(
+    message
+){
+
+    if(
+        "Notification" in window &&
+        Notification.permission ===
+        "granted"
+    ){
+
+        try{
+
+            new Notification(
+                "Lets-ol Sari-sari Store",
+                {
+                    body:message
+                }
+            );
+
+        }
+        catch(error){
+
+            console.log(
+                error
+            );
+
+        }
+
+    }
+
+}
+
+
+/* ======================================================
+   CHECK ORDER NOTIFICATIONS
+====================================================== */
 
 function checkOrderNotifications(){
 
@@ -1354,6 +2856,7 @@ function checkOrderNotifications(){
     let approvedChanged =
         false;
 
+
     let readyChanged =
         false;
 
@@ -1363,7 +2866,11 @@ function checkOrderNotifications(){
     ).forEach(
         ([key,order]) => {
 
-            if(!order) return;
+            if(!order){
+
+                return;
+
+            }
 
 
             const status =
@@ -1381,8 +2888,10 @@ function checkOrderNotifications(){
 
                 beepOnce();
 
+
                 approvedBeeped[key] =
                     true;
+
 
                 approvedChanged =
                     true;
@@ -1404,8 +2913,10 @@ function checkOrderNotifications(){
 
                 beepTenTimes();
 
+
                 readyBeeped[key] =
                     true;
+
 
                 readyChanged =
                     true;
@@ -1449,41 +2960,14 @@ function checkOrderNotifications(){
 }
 
 
-/* BROWSER NOTIFICATION */
-
-function showNotification(message){
-
-    if(
-        "Notification" in window &&
-        Notification.permission ===
-            "granted"
-    ){
-
-        try{
-
-            new Notification(
-                "Lets-ol Sari-sari Store",
-                {
-                    body:message
-                }
-            );
-
-        }catch(error){
-
-            console.log(error);
-
-        }
-
-    }
-
-}
-
-
-/* REQUEST NOTIFICATION PERMISSION */
+/* ======================================================
+   NOTIFICATION PERMISSION
+====================================================== */
 
 if(
     "Notification" in window &&
-    Notification.permission === "default"
+    Notification.permission ===
+    "default"
 ){
 
     document.addEventListener(
@@ -1498,23 +2982,114 @@ if(
             );
 
         },
-        {once:true}
+        {
+            once:true
+        }
     );
 
 }
 
 
-/* CLOSE MODALS WHEN CLICKING OUTSIDE */
+/* ======================================================
+   DATE
+====================================================== */
+
+function formatDate(
+    timestamp
+){
+
+    if(!timestamp){
+
+        return "";
+
+    }
+
+
+    return new Date(
+        Number(timestamp)
+    ).toLocaleString();
+
+}
+
+
+/* ======================================================
+   ESCAPE HTML
+====================================================== */
+
+function escapeHtml(
+    value
+){
+
+    return String(value)
+        .replace(
+            /&/g,
+            "&amp;"
+        )
+        .replace(
+            /</g,
+            "&lt;"
+        )
+        .replace(
+            />/g,
+            "&gt;"
+        )
+        .replace(
+            /"/g,
+            "&quot;"
+        )
+        .replace(
+            /'/g,
+            "&#039;"
+        );
+
+}
+
+
+/* ======================================================
+   CLOSE MODALS OUTSIDE
+====================================================== */
 
 document.getElementById(
-    "orderModal"
+    "addCartModal"
 ).addEventListener(
     "click",
     function(event){
 
         if(event.target === this){
 
-            closeOrder();
+            closeAddToCart();
+
+        }
+
+    }
+);
+
+
+document.getElementById(
+    "cartModal"
+).addEventListener(
+    "click",
+    function(event){
+
+        if(event.target === this){
+
+            closeCart();
+
+        }
+
+    }
+);
+
+
+document.getElementById(
+    "checkoutModal"
+).addEventListener(
+    "click",
+    function(event){
+
+        if(event.target === this){
+
+            closeCheckout();
 
         }
 
@@ -1539,19 +3114,20 @@ document.getElementById(
 
 
 document.getElementById(
-    "cartModal"
+    "myOrdersModal"
 ).addEventListener(
     "click",
     function(event){
 
         if(event.target === this){
 
-            closeCart();
+            closeMyOrders();
 
         }
 
     }
 );
+
 
 </script>
 
