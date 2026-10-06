@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 
 <meta name="viewport"
-   content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 <title>Lets-ol Sari-sari Store</title>
 
@@ -56,15 +56,6 @@ body{
     white-space:nowrap;
 }
 
-.title{
-    position:absolute;
-    left:50%;
-    transform:translateX(-50%);
-    font-size:24px;
-    font-weight:bold;
-    white-space:nowrap;
-}
-
 .cartBtn{
     border:0;
     background:#ffd400;
@@ -93,6 +84,20 @@ body{
     background:#c9151e;
     color:white;
     font-size:12px;
+}
+
+
+/* ORDER HERE BELOW RED HEADER */
+
+.orderHere{
+    width:100%;
+    background:white;
+    color:#c9151e;
+    text-align:center;
+    font-size:24px;
+    font-weight:bold;
+    padding:12px 10px;
+    border-bottom:2px solid #ddd;
 }
 
 
@@ -547,6 +552,102 @@ body{
 }
 
 
+/* ======================================================
+   ORDER READY LARGE BOX
+====================================================== */
+
+.readyOverlay{
+    display:none;
+    position:fixed;
+    inset:0;
+    z-index:5000;
+    background:rgba(0,0,0,.82);
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+}
+
+.readyOverlay.show{
+    display:flex;
+    animation:readyFadeIn .2s ease;
+}
+
+.readyBox{
+    width:100%;
+    max-width:650px;
+    background:white;
+    border-radius:25px;
+    padding:35px 25px;
+    text-align:center;
+    box-shadow:0 10px 50px rgba(0,0,0,.55);
+    border:8px solid #c9151e;
+    animation:readyPop .35s ease;
+}
+
+.readyIcon{
+    font-size:90px;
+    line-height:1;
+    margin-bottom:12px;
+}
+
+.readyTitle{
+    font-size:42px;
+    font-weight:900;
+    color:#c9151e;
+    margin-bottom:10px;
+}
+
+.readyMessage{
+    font-size:24px;
+    font-weight:bold;
+    color:#333;
+    margin-bottom:12px;
+}
+
+.readyOrder{
+    font-size:52px;
+    font-weight:900;
+    color:#c9151e;
+    margin:15px 0 20px;
+}
+
+.readyClose{
+    width:100%;
+    border:0;
+    border-radius:12px;
+    background:#c9151e;
+    color:white;
+    padding:17px;
+    font-size:20px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.readyClose:active{
+    transform:scale(.97);
+}
+
+@keyframes readyPop{
+    0%{
+        transform:scale(.7);
+        opacity:0;
+    }
+    100%{
+        transform:scale(1);
+        opacity:1;
+    }
+}
+
+@keyframes readyFadeIn{
+    from{
+        opacity:0;
+    }
+    to{
+        opacity:1;
+    }
+}
+
+
 /* MOBILE */
 
 @media(max-width:800px){
@@ -559,13 +660,21 @@ body{
         font-size:17px;
     }
 
-    .title{
-        font-size:20px;
-    }
-
     .cartBtn{
         font-size:14px;
         padding:9px 11px;
+    }
+
+    .orderHere{
+        font-size:20px;
+    }
+
+    .readyTitle{
+        font-size:34px;
+    }
+
+    .readyOrder{
+        font-size:44px;
     }
 
 }
@@ -581,14 +690,15 @@ body{
         font-size:13px;
     }
 
-    .title{
-        font-size:17px;
-    }
-
     .cartBtn{
         font-size:12px;
         padding:8px 8px;
         border-radius:9px;
+    }
+
+    .orderHere{
+        font-size:18px;
+        padding:10px;
     }
 
     .container{
@@ -616,6 +726,52 @@ body{
         padding:11px 5px;
     }
 
+    .readyBox{
+        padding:28px 16px;
+        border-width:6px;
+        border-radius:20px;
+    }
+
+    .readyIcon{
+        font-size:70px;
+    }
+
+    .readyTitle{
+        font-size:30px;
+    }
+
+    .readyMessage{
+        font-size:19px;
+    }
+
+    .readyOrder{
+        font-size:40px;
+    }
+
+}
+
+
+/* VERY SMALL PHONES */
+
+@media(max-width:360px){
+
+    .logo{
+        font-size:11px;
+    }
+
+    .cartBtn{
+        font-size:11px;
+        padding:7px 6px;
+    }
+
+    .readyTitle{
+        font-size:27px;
+    }
+
+    .readyOrder{
+        font-size:34px;
+    }
+
 }
 
 </style>
@@ -626,287 +782,201 @@ body{
 
 <header class="header">
 
-
 <div class="logo">
     🏪 Lets-ol Sari-sari Store
 </div>
 
-<div class="title">
-    ORDER HERE
-</div>
-
 <button class="cartBtn"
-        onclick="openCart()">
+     onclick="openCart()">
 
-    🛒 CART
 
-    <span class="cartCount"
-          id="cartCount">
-        0
-    </span>
+🛒 CART
+
+<span class="cartCount"
+      id="cartCount">
+    0
+</span>
+
 
 </button>
 
-
 </header>
 
-<div class="container">
+<!-- ORDER HERE IS NOW BELOW THE RED HEADER -->
 
+<div class="orderHere">
+    ORDER HERE
+</div>
+
+<div class="container">
 
 <div class="products">
 
 
-    <!-- 1 -->
+<!-- 1 -->
 
-    <div class="product">
+<div class="product">
 
-        <img src="picture1.png"
-             alt="Pepperoni Pizza">
+    <img src="picture1.png"
+         alt="Pepperoni Pizza">
 
-        <div class="productInfo">
+    <div class="productInfo">
 
-            <div class="productName">
-                Pepperoni Pizza
-            </div>
-
-            <div class="price">
-                ₱105
-            </div>
-
-            <button class="orderBtn"
-                    onclick="openAddToCart('Pepperoni Pizza',105,'picture1.png')">
-
-                ADD TO CART
-
-            </button>
-
+        <div class="productName">
+            Pepperoni Pizza
         </div>
 
-    </div>
-
-
-    <!-- 2 -->
-
-    <div class="product">
-
-        <img src="picture2.png"
-             alt="Ham and Cheese Pizza">
-
-        <div class="productInfo">
-
-            <div class="productName">
-                Ham and Cheese Pizza
-            </div>
-
-            <div class="price">
-                ₱95
-            </div>
-
-            <button class="orderBtn"
-                    onclick="openAddToCart('Ham and Cheese Pizza',95,'picture2.png')">
-
-                ADD TO CART
-
-            </button>
-
+        <div class="price">
+            ₱105
         </div>
 
-    </div>
+        <button class="orderBtn"
+                onclick="openAddToCart('Pepperoni Pizza',105,'picture1.png')">
 
+            ADD TO CART
 
-    <!-- 3 -->
-
-    <div class="product">
-
-        <img src="picture3.png"
-             alt="Hawaiian Pizza">
-
-        <div class="productInfo">
-
-            <div class="productName">
-                Hawaiian Pizza
-            </div>
-
-            <div class="price">
-                ₱105
-            </div>
-
-            <button class="orderBtn"
-                    onclick="openAddToCart('Hawaiian Pizza',105,'picture3.png')">
-
-                ADD TO CART
-
-            </button>
-
-        </div>
+        </button>
 
     </div>
-
-
-    <!-- 4 -->
-
-    <div class="product">
-
-        <img src="picture4.png"
-             alt="Bacon Pizza">
-
-        <div class="productInfo">
-
-            <div class="productName">
-                Bacon Pizza
-            </div>
-
-            <div class="price">
-                ₱115
-            </div>
-
-            <button class="orderBtn"
-                    onclick="openAddToCart('Bacon Pizza',115,'picture4.png')">
-
-                ADD TO CART
-
-            </button>
-
-        </div>
-
-    </div>
-
-
-    <!-- 5 -->
-
-    <div class="product">
-
-        <img src="picture5.png"
-             alt="Bacon and Mushroom Pizza">
-
-        <div class="productInfo">
-
-            <div class="productName">
-                Bacon and Mushroom Pizza
-            </div>
-
-            <div class="price">
-                ₱115
-            </div>
-
-            <button class="orderBtn"
-                    onclick="openAddToCart('Bacon and Mushroom Pizza',115,'picture5.png')">
-
-                ADD TO CART
-
-            </button>
-
-        </div>
-
-    </div>
-
-
-    <!-- 6 -->
-
-    <div class="product">
-
-        <img src="picture6.png"
-             alt="Ham and Cheese Pizza">
-
-        <div class="productInfo">
-
-            <div class="productName">
-                Ham and Cheese Pizza
-            </div>
-
-            <div class="price">
-                ₱188
-            </div>
-
-            <button class="orderBtn"
-                    onclick="openAddToCart('Ham and Cheese Pizza',188,'picture6.png')">
-
-                ADD TO CART
-
-            </button>
-
-        </div>
-
-    </div>
-
 
 </div>
 
 
+<!-- 2 -->
+
+<div class="product">
+
+    <img src="picture2.png"
+         alt="Ham and Cheese Pizza">
+
+    <div class="productInfo">
+
+        <div class="productName">
+            Ham and Cheese Pizza
+        </div>
+
+        <div class="price">
+            ₱95
+        </div>
+
+        <button class="orderBtn"
+                onclick="openAddToCart('Ham and Cheese Pizza',95,'picture2.png')">
+
+            ADD TO CART
+
+        </button>
+
+    </div>
+
 </div>
 
-<!-- ======================================================
-     ADD TO CART MODAL
-====================================================== -->
 
-<div class="modalOverlay"
-     id="addCartModal">
+<!-- 3 -->
 
+<div class="product">
 
-<div class="modal">
+    <img src="picture3.png"
+         alt="Hawaiian Pizza">
 
-    <h2>
-        ADD TO CART
-    </h2>
+    <div class="productInfo">
 
-
-    <div class="addProduct">
-
-        <img id="addProductImage"
-             src=""
-             alt="">
-
-        <div>
-
-            <div class="addProductName"
-                 id="addProductName">
-            </div>
-
-            <div class="addProductPrice"
-                 id="addProductPrice">
-            </div>
-
+        <div class="productName">
+            Hawaiian Pizza
         </div>
 
-    </div>
-
-
-    <div class="label">
-        QUANTITY
-    </div>
-
-
-    <div class="quantityBox">
-
-        <button class="qtyBtn"
-                onclick="changeAddQuantity(-1)">
-            −
-        </button>
-
-        <div class="qtyValue"
-             id="addQuantity">
-            1
+        <div class="price">
+            ₱105
         </div>
 
-        <button class="qtyBtn"
-                onclick="changeAddQuantity(1)">
-            +
+        <button class="orderBtn"
+                onclick="openAddToCart('Hawaiian Pizza',105,'picture3.png')">
+
+            ADD TO CART
+
         </button>
 
     </div>
 
+</div>
 
-    <div class="modalButtons">
 
-        <button class="cancelBtn"
-                onclick="closeAddToCart()">
+<!-- 4 -->
 
-            CANCEL
+<div class="product">
+
+    <img src="picture4.png"
+         alt="Bacon Pizza">
+
+    <div class="productInfo">
+
+        <div class="productName">
+            Bacon Pizza
+        </div>
+
+        <div class="price">
+            ₱115
+        </div>
+
+        <button class="orderBtn"
+                onclick="openAddToCart('Bacon Pizza',115,'picture4.png')">
+
+            ADD TO CART
 
         </button>
 
-        <button class="confirmBtn"
-                onclick="addSelectedToCart()">
+    </div>
+
+</div>
+
+
+<!-- 5 -->
+
+<div class="product">
+
+    <img src="picture5.png"
+         alt="Bacon and Mushroom Pizza">
+
+    <div class="productInfo">
+
+        <div class="productName">
+            Bacon and Mushroom Pizza
+        </div>
+
+        <div class="price">
+            ₱115
+        </div>
+
+        <button class="orderBtn"
+                onclick="openAddToCart('Bacon and Mushroom Pizza',115,'picture5.png')">
+
+            ADD TO CART
+
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- 6 -->
+
+<div class="product">
+
+    <img src="picture6.png"
+         alt="Ham and Cheese Pizza">
+
+    <div class="productInfo">
+
+        <div class="productName">
+            Ham and Cheese Pizza
+        </div>
+
+        <div class="price">
+            ₱188
+        </div>
+
+        <button class="orderBtn"
+                onclick="openAddToCart('Ham and Cheese Pizza',188,'picture6.png')">
 
             ADD TO CART
 
@@ -919,6 +989,88 @@ body{
 
 </div>
 
+</div>
+
+<!-- ======================================================
+     ADD TO CART MODAL
+====================================================== -->
+
+<div class="modalOverlay"
+     id="addCartModal">
+
+<div class="modal">
+
+
+<h2>
+    ADD TO CART
+</h2>
+
+<div class="addProduct">
+
+    <img id="addProductImage"
+         src=""
+         alt="">
+
+    <div>
+
+        <div class="addProductName"
+             id="addProductName">
+        </div>
+
+        <div class="addProductPrice"
+             id="addProductPrice">
+        </div>
+
+    </div>
+
+</div>
+
+<div class="label">
+    QUANTITY
+</div>
+
+<div class="quantityBox">
+
+    <button class="qtyBtn"
+            onclick="changeAddQuantity(-1)">
+        −
+    </button>
+
+    <div class="qtyValue"
+         id="addQuantity">
+        1
+    </div>
+
+    <button class="qtyBtn"
+            onclick="changeAddQuantity(1)">
+        +
+    </button>
+
+</div>
+
+<div class="modalButtons">
+
+    <button class="cancelBtn"
+            onclick="closeAddToCart()">
+
+        CANCEL
+
+    </button>
+
+    <button class="confirmBtn"
+            onclick="addSelectedToCart()">
+
+        ADD TO CART
+
+    </button>
+
+</div>
+
+
+</div>
+
+</div>
+
 <!-- ======================================================
      CART MODAL
 ====================================================== -->
@@ -926,76 +1078,72 @@ body{
 <div class="modalOverlay"
      id="cartModal">
 
-
 <div class="modal">
 
-    <h2>
-        🛒 MY CART
-    </h2>
 
+<h2>
+    🛒 MY CART
+</h2>
 
-    <div id="cartList"
-         class="cartList">
+<div id="cartList"
+     class="cartList">
 
-        <div class="emptyCart">
-            Your cart is empty.
-        </div>
+    <div class="emptyCart">
+        Your cart is empty.
+    </div>
+
+</div>
+
+<div id="cartSummary"
+     class="cartTotal"
+     style="display:none;">
+
+    <div class="cartTotalRow">
+
+        <span>
+            Items
+        </span>
+
+        <span id="cartItemsCount">
+            0
+        </span>
 
     </div>
 
+    <div class="cartTotalRow">
 
-    <div id="cartSummary"
-         class="cartTotal"
-         style="display:none;">
+        <span>
+            TOTAL
+        </span>
 
-        <div class="cartTotalRow">
-
-            <span>
-                Items
-            </span>
-
-            <span id="cartItemsCount">
-                0
-            </span>
-
-        </div>
-
-
-        <div class="cartTotalRow">
-
-            <span>
-                TOTAL
-            </span>
-
-            <span id="cartTotal">
-                ₱0
-            </span>
-
-        </div>
-
-    </div>
-
-
-    <div class="modalButtons">
-
-        <button class="cancelBtn"
-                onclick="closeCart()">
-
-            CONTINUE SHOPPING
-
-        </button>
-
-        <button class="confirmBtn"
-                onclick="openCheckout()">
-
-            CHECKOUT
-
-        </button>
+        <span id="cartTotal">
+            ₱0
+        </span>
 
     </div>
 
 </div>
 
+<div class="modalButtons">
+
+    <button class="cancelBtn"
+            onclick="closeCart()">
+
+        CONTINUE SHOPPING
+
+    </button>
+
+    <button class="confirmBtn"
+            onclick="openCheckout()">
+
+        CHECKOUT
+
+    </button>
+
+</div>
+
+
+</div>
 
 </div>
 
@@ -1006,95 +1154,88 @@ body{
 <div class="modalOverlay"
      id="checkoutModal">
 
-
 <div class="modal">
 
-    <h2>
-        CONFIRM ORDER
-    </h2>
 
+<h2>
+    CONFIRM ORDER
+</h2>
 
-    <div id="checkoutItems">
-    </div>
+<div id="checkoutItems">
+</div>
 
+<div class="cartTotal">
 
-    <div class="cartTotal">
+    <div class="cartTotalRow">
 
-        <div class="cartTotalRow">
+        <span>
+            TOTAL ITEMS
+        </span>
 
-            <span>
-                TOTAL ITEMS
-            </span>
-
-            <span id="checkoutItemCount">
-                0
-            </span>
-
-        </div>
-
-
-        <div class="cartTotalRow">
-
-            <span>
-                TOTAL
-            </span>
-
-            <span id="checkoutTotal">
-                ₱0
-            </span>
-
-        </div>
+        <span id="checkoutItemCount">
+            0
+        </span>
 
     </div>
 
+    <div class="cartTotalRow">
 
-    <div class="label">
-        PAYMENT
-    </div>
+        <span>
+            TOTAL
+        </span>
 
-
-    <div class="paymentOptions">
-
-        <div class="paymentOption selected"
-             id="cashPayment"
-             onclick="selectPayment('Cash')">
-
-            💵 CASH
-
-        </div>
-
-
-        <div class="paymentOption"
-             id="gcashPayment"
-             onclick="selectPayment('GCash')">
-
-            📱 GCASH
-
-        </div>
-
-    </div>
-
-
-    <div class="modalButtons">
-
-        <button class="cancelBtn"
-                onclick="closeCheckout()">
-
-            BACK
-
-        </button>
-
-        <button class="confirmBtn"
-                onclick="confirmOrder()">
-
-            CONFIRM ORDER
-
-        </button>
+        <span id="checkoutTotal">
+            ₱0
+        </span>
 
     </div>
 
 </div>
 
+<div class="label">
+    PAYMENT
+</div>
+
+<div class="paymentOptions">
+
+    <div class="paymentOption selected"
+         id="cashPayment"
+         onclick="selectPayment('Cash')">
+
+        💵 CASH
+
+    </div>
+
+    <div class="paymentOption"
+         id="gcashPayment"
+         onclick="selectPayment('GCash')">
+
+        📱 GCASH
+
+    </div>
+
+</div>
+
+<div class="modalButtons">
+
+    <button class="cancelBtn"
+            onclick="closeCheckout()">
+
+        BACK
+
+    </button>
+
+    <button class="confirmBtn"
+            onclick="confirmOrder()">
+
+        CONFIRM ORDER
+
+    </button>
+
+</div>
+
+
+</div>
 
 </div>
 
@@ -1105,84 +1246,78 @@ body{
 <div class="modalOverlay"
      id="successModal">
 
-
 <div class="modal">
 
-    <div class="successIcon">
-        ✅
+
+<div class="successIcon">
+    ✅
+</div>
+
+<h2>
+    ORDER SUCCESSFUL
+</h2>
+
+<div class="successText">
+
+    <div>
+        Your Order Number is
     </div>
 
-    <h2>
-        ORDER SUCCESSFUL
-    </h2>
-
-
-    <div class="successText">
-
-        <div>
-            Your Order Number is
-        </div>
-
-        <div class="orderNumber"
-             id="successOrderNumber">
-            #
-        </div>
-
+    <div class="orderNumber"
+         id="successOrderNumber">
+        #
     </div>
-
-
-    <div class="successItems"
-         id="successItems">
-    </div>
-
-
-    <div class="cartTotal">
-
-        <div class="cartTotalRow">
-
-            <span>
-                PAYMENT
-            </span>
-
-            <span id="successPayment">
-            </span>
-
-        </div>
-
-
-        <div class="cartTotalRow">
-
-            <span>
-                TOTAL
-            </span>
-
-            <span id="successTotal">
-                ₱0
-            </span>
-
-        </div>
-
-    </div>
-
-
-    <p style="text-align:center;">
-
-        Please wait for the store to accept
-        your order.
-
-    </p>
-
-
-    <button class="confirmBtn"
-            style="width:100%;"
-            onclick="closeSuccess()">
-
-        OK
-
-    </button>
 
 </div>
 
+<div class="successItems"
+     id="successItems">
+</div>
+
+<div class="cartTotal">
+
+    <div class="cartTotalRow">
+
+        <span>
+            PAYMENT
+        </span>
+
+        <span id="successPayment">
+        </span>
+
+    </div>
+
+    <div class="cartTotalRow">
+
+        <span>
+            TOTAL
+        </span>
+
+        <span id="successTotal">
+            ₱0
+        </span>
+
+    </div>
+
+</div>
+
+<p style="text-align:center;">
+
+    Please wait for the store to accept
+    your order.
+
+</p>
+
+<button class="confirmBtn"
+        style="width:100%;"
+        onclick="closeSuccess()">
+
+    OK
+
+</button>
+
+
+</div>
 
 </div>
 
@@ -1193,29 +1328,66 @@ body{
 <div class="modalOverlay"
      id="myOrdersModal">
 
-
 <div class="modal">
 
-    <h2>
-        📋 MY ORDERS
-    </h2>
 
+<h2>
+    📋 MY ORDERS
+</h2>
 
-    <div id="myOrdersList"
-         class="myOrdersList">
+<div id="myOrdersList"
+     class="myOrdersList">
 
-        <div class="loading">
-            Loading orders...
-        </div>
-
+    <div class="loading">
+        Loading orders...
     </div>
 
+</div>
 
-    <button class="cancelBtn"
-            style="width:100%;margin-top:12px;"
-            onclick="closeMyOrders()">
+<button class="cancelBtn"
+        style="width:100%;margin-top:12px;"
+        onclick="closeMyOrders()">
 
-        CLOSE
+    CLOSE
+
+</button>
+
+
+</div>
+
+</div>
+
+<!-- ======================================================
+     LARGE ORDER READY BOX
+====================================================== -->
+
+<div class="readyOverlay"
+     id="readyOverlay">
+
+
+<div class="readyBox">
+
+    <div class="readyIcon">
+        🔔
+    </div>
+
+    <div class="readyTitle">
+        YOUR ORDER IS READY!
+    </div>
+
+    <div class="readyMessage">
+        Please claim your order.
+    </div>
+
+    <div class="readyOrder"
+         id="readyOrderNumber">
+        ORDER #1
+    </div>
+
+    <button class="readyClose"
+            onclick="closeReadyNotification()">
+
+        OK, THANK YOU
 
     </button>
 
@@ -1226,11 +1398,9 @@ body{
 
 <script type="module">
 
-
 import {
     initializeApp
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-
 
 import {
     getDatabase,
@@ -1332,6 +1502,65 @@ let addQuantity = 1;
 let payment = "Cash";
 
 let myOrders = {};
+
+
+/* ======================================================
+   AUDIO CONTEXT
+====================================================== */
+
+let audioContext = null;
+
+
+/*
+   Unlock audio as soon as the customer interacts
+   with the page.
+*/
+
+function unlockAudio(){
+
+    try{
+
+        const AudioContext =
+            window.AudioContext ||
+            window.webkitAudioContext;
+
+        if(!AudioContext){
+            return;
+        }
+
+        if(!audioContext){
+
+            audioContext =
+                new AudioContext();
+
+        }
+
+        if(audioContext.state === "suspended"){
+
+            audioContext.resume();
+
+        }
+
+    }
+    catch(error){
+
+        console.log(
+            "Audio unlock error:",
+            error
+        );
+
+    }
+
+}
+
+
+document.addEventListener(
+    "click",
+    unlockAudio,
+    {
+        passive:true
+    }
+);
 
 
 /* ======================================================
@@ -1493,12 +1722,6 @@ function(){
     }
 
 
-    /*
-    If same product already exists,
-    increase its quantity instead
-    of creating another line.
-    */
-
     const existing =
         cart.find(
             item =>
@@ -1546,10 +1769,6 @@ function(){
 
     closeAddToCart();
 
-
-    /*
-    Small visual confirmation.
-    */
 
     alert(
         selectedProduct +
@@ -1633,7 +1852,6 @@ function renderCart(){
 
     list.innerHTML = "";
 
-
     let totalItems = 0;
 
     let total = 0;
@@ -1685,7 +1903,6 @@ function renderCart(){
                     )}"
                     alt=""
                 >
-
 
                 <div class="cartItemInfo">
 
@@ -1893,7 +2110,6 @@ function renderCheckout(){
 
 
     container.innerHTML = "";
-
 
     let totalItems = 0;
 
@@ -2107,11 +2323,6 @@ async function(){
 
     try{
 
-        /*
-        ONE ORDER NUMBER
-        FOR THE WHOLE CART
-        */
-
         const orderNumber =
             await getNextOrderNumber();
 
@@ -2173,10 +2384,6 @@ async function(){
             );
 
 
-        /*
-        ONE FIREBASE RECORD
-        */
-
         const orderData = {
 
             orderNumber:
@@ -2215,10 +2422,6 @@ async function(){
         );
 
 
-        /*
-        SAVE VALUES FOR SUCCESS SCREEN
-        */
-
         document.getElementById(
             "successOrderNumber"
         ).textContent =
@@ -2245,7 +2448,8 @@ async function(){
             );
 
 
-        successItems.innerHTML = "";
+        successItems.innerHTML =
+            "";
 
 
         items.forEach(
@@ -2282,18 +2486,10 @@ async function(){
         );
 
 
-        /*
-        CLEAR CART
-        */
-
         cart = [];
 
         saveCart();
 
-
-        /*
-        CLOSE CHECKOUT
-        */
 
         document.getElementById(
             "checkoutModal"
@@ -2308,10 +2504,6 @@ async function(){
             "show"
         );
 
-
-        /*
-        SHOW SUCCESS
-        */
 
         document.getElementById(
             "successModal"
@@ -2416,7 +2608,9 @@ onValue(
         myOrders =
             snapshot.val() || {};
 
+
         renderMyOrders();
+
 
         checkOrderNotifications();
 
@@ -2500,12 +2694,9 @@ function renderMyOrders(){
                 "Pending";
 
 
-            let itemsHTML = "";
+            let itemsHTML =
+                "";
 
-
-            /*
-            NEW CART ORDER FORMAT
-            */
 
             if(
                 Array.isArray(
@@ -2540,11 +2731,6 @@ function renderMyOrders(){
                 );
 
             }
-
-
-            /*
-            OLD SINGLE PRODUCT FORMAT
-            */
 
             else if(order.product){
 
@@ -2687,7 +2873,7 @@ function calculateItemCount(
 
 
 /* ======================================================
-   BEEP
+   BEEP ONCE - INSTANT
 ====================================================== */
 
 function beepOnce(){
@@ -2706,8 +2892,22 @@ function beepOnce(){
         }
 
 
-        const audioContext =
-            new AudioContext();
+        if(!audioContext){
+
+            audioContext =
+                new AudioContext();
+
+        }
+
+
+        if(
+            audioContext.state ===
+            "suspended"
+        ){
+
+            audioContext.resume();
+
+        }
 
 
         const oscillator =
@@ -2726,8 +2926,10 @@ function beepOnce(){
             900;
 
 
-        gain.gain.value =
-            0.15;
+        gain.gain.setValueAtTime(
+            0.18,
+            audioContext.currentTime
+        );
 
 
         oscillator.connect(
@@ -2740,7 +2942,9 @@ function beepOnce(){
         );
 
 
-        oscillator.start();
+        oscillator.start(
+            audioContext.currentTime
+        );
 
 
         oscillator.stop(
@@ -2762,13 +2966,26 @@ function beepOnce(){
 
 
 /* ======================================================
-   10 BEEPS
+   15 BEEPS WITH FIRST BEEP IMMEDIATELY
+   TOTAL TIME: ABOUT 10 SECONDS
 ====================================================== */
 
-function beepTenTimes(){
+function beepFifteenTimes(){
 
-    let count = 0;
+    /*
+       FIRST BEEP IS IMMEDIATE
+    */
 
+    beepOnce();
+
+
+    let count = 1;
+
+
+    /*
+       Remaining 14 beeps are spread across
+       approximately 10 seconds.
+    */
 
     const interval =
         setInterval(
@@ -2779,7 +2996,7 @@ function beepTenTimes(){
                 count++;
 
 
-                if(count >= 10){
+                if(count >= 15){
 
                     clearInterval(
                         interval
@@ -2788,14 +3005,14 @@ function beepTenTimes(){
                 }
 
             },
-            450
+            714
         );
 
 }
 
 
 /* ======================================================
-   NOTIFICATIONS
+   BROWSER NOTIFICATION
 ====================================================== */
 
 function showNotification(
@@ -2829,6 +3046,54 @@ function showNotification(
     }
 
 }
+
+
+/* ======================================================
+   SHOW LARGE READY BOX
+====================================================== */
+
+function showReadyBox(
+    orderNumber
+){
+
+    const overlay =
+        document.getElementById(
+            "readyOverlay"
+        );
+
+
+    const numberElement =
+        document.getElementById(
+            "readyOrderNumber"
+        );
+
+
+    numberElement.textContent =
+        "ORDER #" +
+        orderNumber;
+
+
+    overlay.classList.add(
+        "show"
+    );
+
+}
+
+
+/* ======================================================
+   CLOSE READY BOX
+====================================================== */
+
+window.closeReadyNotification =
+function(){
+
+    document.getElementById(
+        "readyOverlay"
+    ).classList.remove(
+        "show"
+    );
+
+};
 
 
 /* ======================================================
@@ -2881,10 +3146,18 @@ function checkOrderNotifications(){
                 order.orderNumber;
 
 
+            /*
+               ACCEPTED
+            */
+
             if(
                 status === "Accepted" &&
                 !approvedBeeped[key]
             ){
+
+                /*
+                   INSTANT BEEP
+                */
 
                 beepOnce();
 
@@ -2906,13 +3179,19 @@ function checkOrderNotifications(){
             }
 
 
+            /*
+               COMPLETED / READY
+            */
+
             if(
                 status === "Completed" &&
                 !readyBeeped[key]
             ){
 
-                beepTenTimes();
-
+                /*
+                   MARK FIRST SO THE EVENT
+                   CANNOT TRIGGER TWICE
+                */
 
                 readyBeeped[key] =
                     true;
@@ -2921,6 +3200,28 @@ function checkOrderNotifications(){
                 readyChanged =
                     true;
 
+
+                /*
+                   SHOW LARGE READY BOX
+                   IMMEDIATELY
+                */
+
+                showReadyBox(
+                    number
+                );
+
+
+                /*
+                   START BEEPING IMMEDIATELY
+                */
+
+                beepFifteenTimes();
+
+
+                /*
+                   BROWSER NOTIFICATION
+                   ALSO IMMEDIATE
+                */
 
                 showNotification(
                     "Order #" +
@@ -3128,6 +3429,25 @@ document.getElementById(
     }
 );
 
+
+/* ======================================================
+   READY BOX BACKGROUND CLICK
+====================================================== */
+
+document.getElementById(
+    "readyOverlay"
+).addEventListener(
+    "click",
+    function(event){
+
+        if(event.target === this){
+
+            closeReadyNotification();
+
+        }
+
+    }
+);
 
 </script>
 
